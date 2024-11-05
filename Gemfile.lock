@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    germinator (2.1.0)
+    germinator (2.1.1)
       actionview (>= 6.0.3.3, < 7.0)
 
 GEM
