@@ -32,9 +32,14 @@ jobs:
         run: |
           GEM_VERSION=$(ruby -r ./lib/germinator/version.rb -e "puts Germinator::VERSION")
           echo "GEM_VERSION=$GEM_VERSION" >> $GITHUB_ENV
+      # For publishing private packages to wowza-private's GitHub Package Registry
       - name: Publish Gem
         run: |
-          gem push germinator-${{env.GEM_VERSION}}.gem
+          gem push --key github --host https://rubygems.pkg.github.com/${{ github.repository_owner }} germinator-${{env.GEM_VERSION}}.gem
+      # # For publishing public packages at RubyGems.org
+      # - name: Publish Gem
+      #   run: |
+      #     gem push germinator-${{env.GEM_VERSION}}.gem
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
