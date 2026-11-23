@@ -10,4 +10,4 @@ gemspec
 # Git. Remember to move these dependencies to your gemspec before releasing
 # your gem to rubygems.org.
 
-gem "actionview", ">= 6.0.3.3", "< 7.0"
+gem "actionview", ">= 6.0.3.3", "< 9"

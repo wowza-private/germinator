@@ -18,6 +18,6 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*", "LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
 
-  s.add_dependency "actionview", ">= 6.0.3.3", "< 7.0"
+  s.add_dependency "actionview", ">= 6.0.3.3", "< 9"
   s.add_development_dependency "rspec", "~> 3.13"
 end
