@@ -29,3 +29,6 @@ config/secrets.yml
 /vendor/assets/bower_components
 *.bowerrc
 bower.json
+
+# Per-Rails-version lockfiles are resolved in CI, not committed
+/gemfiles/*.lock

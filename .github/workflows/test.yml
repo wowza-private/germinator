@@ -8,11 +8,26 @@ on:
 jobs:
   run-rspec-tests:
     runs-on: ubuntu-latest
+    name: Ruby ${{ matrix.ruby-version }} / Rails ${{ matrix.rails-version }}
 
     strategy:
       fail-fast: false
       matrix:
-        ruby-version: [2.7]
+        ruby-version: ["2.6", "2.7", "3.0", "3.3"]
+        rails-version: ["6.1", "7.0"]
+        exclude:
+          # Rails 7.0 requires Ruby >= 2.7
+          - ruby-version: "2.6"
+            rails-version: "7.0"
+        include:
+          - ruby-version: "3.3"
+            rails-version: "7.2"
+          - ruby-version: "3.3"
+            rails-version: "8.x"
+
+    env:
+      BUNDLE_GEMFILE: gemfiles/rails_${{ matrix.rails-version }}.gemfile
+      RAILS_VERSION: ${{ matrix.rails-version }}
 
     steps:
       - uses: actions/checkout@v4
